@@ -1,3 +1,15 @@
+function wpb_add_googleanalytics() { ?>
+<!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-7QJMM8RPV8"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-7QJMM8RPV8');
+</script>
+<?php }
+add_action('wp_head', 'wpb_add_googleanalytics');
 function listen_javascript() {
   if (is_page ('179')) { 
     ?>
@@ -43,3 +55,15 @@ function patreon_javascript() {
 	}
 }
 add_action('wp_head', 'patreon_javascript');
+function bay2bay_javascript() {
+	if (is_page ('298')) {
+		?>
+			<script type="text/javascript">
+				var bay2bayUrl="https://charity.pledgeit.org/t/U0c0O8qVfr";
+				{window.location=bay2bayUrl;}
+			</script>
+			<noscript>Your browser does not support JavaScript. Oh no! But you can still search for "Beers in The Lot" in you favorite podcast app.</noscript>
+		<?php
+	}
+}
+add_action('wp_head', 'bay2bay_javascript');
